@@ -1,0 +1,21 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+  #添加健康检查
+    healthcheck:
+      enabled: true
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://user:admin@${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: eureka-server
+#添加统一认证
+security:
+  user:
+    name: user
+    password: admin
